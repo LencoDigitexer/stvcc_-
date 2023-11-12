@@ -1,0 +1,29 @@
+1. Запустите Visual Studio 2022
+
+[[http://prep.scc/~asv/images/image1.png]]
+
+
+2. Выберите проект WPF (Microsoft)
+
+[[http://prep.scc/~asv/images/image2.png]]
+
+3. Название проекта и решения: **SportStore**
+
+[[http://prep.scc/~asv/images/image3.png]]
+
+4. Платформа: .NET 6.0
+
+[[http://prep.scc/~asv/images/image4.png]]
+
+
+5. Начальное окно с разметкой и контруктором
+
+[[http://prep.scc/~asv/images/image5.png]]
+
+6. Обозреватель решений
+
+[[http://prep.scc/~asv/images/image6.png]]
+
+7. Обозреватель объектов SQL Server
+
+[[http://prep.scc/~asv/images/image7.png]]
