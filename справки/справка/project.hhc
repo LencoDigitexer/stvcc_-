@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="CHM Editor">
+</HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="Window Styles" value="0x800027">
+<param name="ImageType" value="Folder">
+
+</OBJECT>
+<UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="Начальная страница">
+    <param name="Local" value="index.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="1. Начало работы">
+    <param name="Local" value="nachalo_raboty.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="2. Введение">
+    <param name="Local" value="vvedenie.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="3. Назначение и условия применения информационной системы для технического осмотра автомобилей">
+    <param name="Local" value="naznachenie_i_usloviya_primeneniya_informatsionnoj_sistemy_dlya_tekhnicheskogo_osmotra_avtomobilej.htm">
+    </OBJECT>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="4. Описание операций">
+    <param name="Local" value="opisanie_operatsij.htm">
+    </OBJECT>
+  <UL>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="4.1. Задача: «Визуализация списка»">
+      <param name="Local" value="zadacha___vizualizatsiya_spiska_.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="4.2. Задача: «Добавление новой карточки автомобиля или редактирование текущей с целью изменить данные об автомобиле»">
+      <param name="Local" value="zadacha___dobavlenie_novoj_kartochki_avtomobilya_ili_redaktirovanie_tekushchej_s_tselyu_izmenit_dannye_ob_avtomobile_.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="4.3. Задача: «Удаление карточки автомобиля из списка»">
+      <param name="Local" value="zadacha___udalenie_kartochki_avtomobilya_iz_spiska_.htm">
+      </OBJECT>
+    <LI> <OBJECT type="text/sitemap">
+      <param name="Name" value="4.4. «Создание и печать чека»">
+      <param name="Local" value="_sozdanie_i_pechat_cheka_.htm">
+      </OBJECT>
+  </UL>
+  <LI> <OBJECT type="text/sitemap">
+    <param name="Name" value="5. Аварийные ситуации">
+    <param name="Local" value="avarijnye_situatsii.htm">
+    </OBJECT>
+</UL>
+</BODY></HTML>

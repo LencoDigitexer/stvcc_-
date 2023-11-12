@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!-- saved from url=(0214)http://git.scc/asv/SportStorePractic/wiki/06-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-ERD-%D0%B4%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85 -->
+<html lang="ru-RU" class="theme-auto"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>06 Создание ERD диаграммы базы данных -  SportStorePractic - Gitea: Git with a cup of tea</title>
+	<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiR2l0ZWE6IEdpdCB3aXRoIGEgY3VwIG9mIHRlYSIsInNob3J0X25hbWUiOiJHaXRlYTogR2l0IHdpdGggYSBjdXAgb2YgdGVhIiwic3RhcnRfdXJsIjoiaHR0cDovL2dpdC5zY2MvIiwiaWNvbnMiOlt7InNyYyI6Imh0dHA6Ly9naXQuc2NjL2Fzc2V0cy9pbWcvbG9nby5wbmciLCJ0eXBlIjoiaW1hZ2UvcG5nIiwic2l6ZXMiOiI1MTJ4NTEyIn0seyJzcmMiOiJodHRwOi8vZ2l0LnNjYy9hc3NldHMvaW1nL2xvZ28uc3ZnIiwidHlwZSI6ImltYWdlL3N2Zyt4bWwiLCJzaXplcyI6IjUxMng1MTIifV19">
+	<meta name="theme-color" content="#6cc644">
+	<meta name="default-theme" content="auto">
+	<meta name="author" content="asv">
+	<meta name="description" content="SportStorePractic">
+	<meta name="keywords" content="go,git,self-hosted,gitea">
+	<meta name="referrer" content="no-referrer">
+
+
+	<link rel="icon" href="http://git.scc/assets/img/favicon.svg" type="image/svg+xml">
+	<link rel="alternate icon" href="http://git.scc/assets/img/favicon.png" type="image/png">
+	<link rel="stylesheet" href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/index.css">
+	
+<script>
+	<!--   -->
+	window.addEventListener('error', function(e) {window._globalHandlerErrors=window._globalHandlerErrors||[]; window._globalHandlerErrors.push(e);});
+	window.config = {
+		appVer: '1.17.2',
+		appUrl: 'http:\/\/git.scc\/',
+		appSubUrl: '',
+		assetVersionEncoded: encodeURIComponent('1.17.2'), 
+		assetUrlPrefix: '\/assets',
+		runModeIsProd:  true ,
+		customEmojis: {"codeberg":":codeberg:","git":":git:","gitea":":gitea:","github":":github:","gitlab":":gitlab:","gogs":":gogs:"},
+		useServiceWorker:  false ,
+		csrfToken: 'p-08C_EEp7WMBPyFJcGEokMCAOg6MTY3NzU3NDU5OTA5MTA0NzY0NA',
+		pageData: {},
+		requireTribute:  null ,
+		notificationSettings: {"EventSourceUpdateTime":10000,"MaxTimeout":60000,"MinTimeout":10000,"TimeoutStep":10000}, 
+		enableTimeTracking:  true ,
+		
+		mermaidMaxSourceCharacters:  5000 ,
+		
+		i18n: {
+			copy_success: 'Скопировано!',
+			copy_error: 'Ошибка при копировании',
+			error_occurred: 'Произошла ошибка',
+			network_error: 'Ошибка сети',
+		},
+	};
+	
+	window.config.pageData = window.config.pageData || {};
+</script>
+
+	<noscript>
+		<style>
+			.dropdown:hover > .menu { display: block; }
+			.ui.secondary.menu .dropdown.item > .menu { margin-top: 0; }
+		</style>
+	</noscript>
+
+	
+		<meta property="og:title" content="SportStorePractic">
+		<meta property="og:url" content="http://git.scc/asv/SportStorePractic">
+		
+	
+	<meta property="og:type" content="object">
+	
+		<meta property="og:image" content="http://git.scc/avatar/5f7ad4d90a66acd546d1a8da2d9ac956">
+	
+
+<meta property="og:site_name" content="Gitea: Git with a cup of tea">
+
+	
+		<link rel="stylesheet" href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/theme-auto.css">
+	
+
+
+</head>
+<body>
+	
+
+	<div class="full height">
+		<noscript>Пожалуйста, включите JavaScript.</noscript>
+
+		
+
+		
+			<div class="ui top secondary stackable main menu following bar light no-vertical-tabs">
+				<div class="ui container" id="navbar">
+	
+	
+		
+	
+	<div class="item brand" style="justify-content: space-between;">
+		<a href="http://git.scc/" aria-label="Панель управления">
+			<img class="ui mini image" width="30" height="30" src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/logo.svg" alt="Logo" aria-hidden="true">
+		</a>
+		
+		<a href="http://git.scc/notifications" class="tooltip mobile-only" data-content="Уведомления" data-variation="inverted tiny">
+			<span class="text black">
+				<span class="fitted"><svg viewBox="0 0 16 16" class="svg octicon-bell" width="16" height="16" aria-hidden="true"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16z"></path><path fill-rule="evenodd" d="M8 1.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.018.018 0 0 0-.003.01l.001.006c0 .002.002.004.004.006a.017.017 0 0 0 .006.004l.007.001h10.964l.007-.001a.016.016 0 0 0 .006-.004.016.016 0 0 0 .004-.006l.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.75 1.75 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5zM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0 1 13.482 13H2.518a1.518 1.518 0 0 1-1.263-2.36l1.703-2.554A.25.25 0 0 0 3 7.947V5z"></path></svg></span>
+				<span class="ui red label mini hidden notification_count">
+					0
+				</span>
+			</span>
+		</a>
+		
+		<div class="ui basic icon button mobile-only" id="navbar-expand-toggle">
+			<i class="sidebar icon"></i>
+		</div>
+	</div>
+
+	
+		
+		<a class="item " href="http://git.scc/issues">Задачи</a>
+		
+		
+		<a class="item " href="http://git.scc/pulls">Запросы на слияние</a>
+		
+		
+		<a class="item " href="http://git.scc/milestones">Этапы</a>
+		
+		<a class="item " href="http://git.scc/explore/repos">Обзор</a>
+	
+
+	
+
+	
+
+
+	
+		<div class="right stackable menu">
+			<a class="active-stopwatch-trigger item ui label hidden">
+				<span class="text">
+					<span class="fitted item">
+						<svg viewBox="0 0 16 16" class="svg octicon-stopwatch" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75.75A.75.75 0 0 1 6.5 0h3a.75.75 0 0 1 0 1.5h-.75v1l-.001.041a6.718 6.718 0 0 1 3.464 1.435l.007-.006.75-.75a.75.75 0 1 1 1.06 1.06l-.75.75-.006.007a6.75 6.75 0 1 1-10.548 0L2.72 5.03l-.75-.75a.75.75 0 0 1 1.06-1.06l.75.75.007.006A6.718 6.718 0 0 1 7.25 2.541a.756.756 0 0 1 0-.041v-1H6.5a.75.75 0 0 1-.75-.75zM8 14.5A5.25 5.25 0 1 0 8 4a5.25 5.25 0 0 0 0 10.5zm.389-6.7 1.33-1.33a.75.75 0 1 1 1.061 1.06L9.45 8.861A1.502 1.502 0 0 1 8 10.75a1.5 1.5 0 1 1 .389-2.95z"></path></svg>
+						<span class="red" style="position:absolute; right:-0.6em; top:-0.6em;"><svg viewBox="0 0 16 16" class="svg octicon-dot-fill" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path></svg></span>
+					</span>
+					<span class="sr-mobile-only">Трекер рабочего времени</span>
+				</span>
+			</a>
+			<div class="ui popup very wide">
+				<div class="df ac">
+					<a class="stopwatch-link df ac" href="http://git.scc/asv/SportStorePractic/wiki/06-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-ERD-%D0%B4%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">
+						<svg viewBox="0 0 16 16" class="svg octicon-issue-opened" width="16" height="16" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path><path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0z"></path></svg>
+						<span class="stopwatch-issue">#</span>
+						<span class="ui primary label stopwatch-time my-0 mx-4" data-seconds="">
+							
+						</span>
+					</a>
+					<form class="stopwatch-commit" method="POST" action="http://git.scc/times/stopwatch/toggle">
+						<input type="hidden" name="_csrf" value="p-08C_EEp7WMBPyFJcGEokMCAOg6MTY3NzU3NDU5OTA5MTA0NzY0NA">
+						<button class="ui button mini compact basic icon fitted tooltip" data-content="Остановить таймер" data-position="top right" data-variation="inverted tiny"><svg viewBox="0 0 16 16" class="svg octicon-square-fill" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.75 4A1.75 1.75 0 0 0 4 5.75v4.5c0 .966.784 1.75 1.75 1.75h4.5A1.75 1.75 0 0 0 12 10.25v-4.5A1.75 1.75 0 0 0 10.25 4h-4.5z"></path></svg></button>
+					</form>
+					<form class="stopwatch-cancel" method="POST" action="http://git.scc/times/stopwatch/cancel">
+						<input type="hidden" name="_csrf" value="p-08C_EEp7WMBPyFJcGEokMCAOg6MTY3NzU3NDU5OTA5MTA0NzY0NA">
+						<button class="ui button mini compact basic icon fitted tooltip" data-content="Отмена" data-position="top right" data-variation="inverted tiny"><svg viewBox="0 0 16 16" class="svg octicon-trash" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 0 1 .25-.25h2.5a.25.25 0 0 1 .25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 1 0-1.492.15l.66 6.6A1.75 1.75 0 0 0 5.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 0 0-1.492-.149l-.66 6.6a.25.25 0 0 1-.249.225h-5.19a.25.25 0 0 1-.249-.225l-.66-6.6z"></path></svg></button>
+					</form>
+				</div>
+			</div>
+
+			<a href="http://git.scc/notifications" class="item tooltip not-mobile" data-content="Уведомления" aria-label="Уведомления" data-variation="inverted tiny">
+				<span class="text">
+					<span class="fitted"><svg viewBox="0 0 16 16" class="svg octicon-bell" width="16" height="16" aria-hidden="true"><path d="M8 16a2 2 0 0 0 1.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 0 0 8 16z"></path><path fill-rule="evenodd" d="M8 1.5A3.5 3.5 0 0 0 4.5 5v2.947c0 .346-.102.683-.294.97l-1.703 2.556a.018.018 0 0 0-.003.01l.001.006c0 .002.002.004.004.006a.017.017 0 0 0 .006.004l.007.001h10.964l.007-.001a.016.016 0 0 0 .006-.004.016.016 0 0 0 .004-.006l.001-.007a.017.017 0 0 0-.003-.01l-1.703-2.554a1.75 1.75 0 0 1-.294-.97V5A3.5 3.5 0 0 0 8 1.5zM3 5a5 5 0 0 1 10 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0 1 13.482 13H2.518a1.518 1.518 0 0 1-1.263-2.36l1.703-2.554A.25.25 0 0 0 3 7.947V5z"></path></svg></span>
+					<span class="ui red label hidden notification_count">
+						0
+					</span>
+				</span>
+			</a>
+
+			<div class="ui dropdown jump item tooltip" data-content="Создать…" tabindex="0" data-aria-attached="1" role="menu" aria-haspopup="menu" aria-controls="_aria_auto_id_0" aria-expanded="false" aria-label="Создать…" data-variation="inverted tiny">
+				<span class="text">
+					<span class="fitted"><svg viewBox="0 0 16 16" class="svg octicon-plus" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 1 1 0 1.5H8.5v4.25a.75.75 0 1 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2z"></path></svg></span>
+					<span class="sr-mobile-only">Создать…</span>
+					<span class="fitted not-mobile"><svg viewBox="0 0 16 16" class="svg octicon-triangle-down" width="16" height="16" aria-hidden="true"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427z"></path></svg></span>
+				</span>
+				<div class="menu hidden transition" tabindex="-1" id="_aria_auto_id_0">
+					<a class="item" href="http://git.scc/repo/create" id="_aria_auto_id_1" role="menuitem" tabindex="-1">
+						<span class="fitted"><svg viewBox="0 0 16 16" class="svg octicon-plus" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.75 2a.75.75 0 0 1 .75.75V7h4.25a.75.75 0 1 1 0 1.5H8.5v4.25a.75.75 0 1 1-1.5 0V8.5H2.75a.75.75 0 0 1 0-1.5H7V2.75A.75.75 0 0 1 7.75 2z"></path></svg></span> Новый репозиторий
+					</a>
+					
+						<a class="item" href="http://git.scc/repo/migrate" id="_aria_auto_id_2" role="menuitem" tabindex="-1">
+							<span class="fitted"><svg viewBox="0 0 16 16" class="svg octicon-repo-push" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1 2.5A2.5 2.5 0 0 1 3.5 0h8.75a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0V1.5h-8a1 1 0 0 0-1 1v6.708A2.492 2.492 0 0 1 3.5 9h3.25a.75.75 0 0 1 0 1.5H3.5a1 1 0 1 0 0 2h5.75a.75.75 0 0 1 0 1.5H3.5A2.5 2.5 0 0 1 1 11.5v-9zm13.23 7.79a.75.75 0 0 0 1.06-1.06l-2.505-2.505a.75.75 0 0 0-1.06 0L9.22 9.229a.75.75 0 0 0 1.06 1.061l1.225-1.224v6.184a.75.75 0 0 0 1.5 0V9.066l1.224 1.224z"></path></svg></span> Новая миграция
+						</a>
+					
+					
+				</div>
+			</div>
+
+			<div class="ui dropdown jump item tooltip" data-content="Профиль и настройки..." tabindex="0" data-aria-attached="1" role="menu" aria-haspopup="menu" aria-controls="_aria_auto_id_3" aria-expanded="false" aria-label="Профиль и настройки..." data-variation="inverted tiny">
+				<span class="text">
+					<img class="ui avatar image tiny" src="http://git.scc/avatar/f5114042ac3f986de9dd1241bb9c41e7?size=72" title="06ip193" width="24" height="24">
+					<span class="sr-only">Профиль и настройки...</span>
+					<span class="mobile-only">06ip193</span>
+					<span class="fitted not-mobile" tabindex="-1"><svg viewBox="0 0 16 16" class="svg octicon-triangle-down" width="16" height="16" aria-hidden="true"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427z"></path></svg></span>
+				</span>
+				<div class="menu user-menu hidden transition" tabindex="-1" id="_aria_auto_id_3">
+					<div class="ui header">
+						Вы вошли как <strong>06ip193</strong>
+					</div>
+
+					<div class="divider"></div>
+					<a class="item" href="http://git.scc/06ip193" id="_aria_auto_id_4" role="menuitem" tabindex="-1">
+						<svg viewBox="0 0 16 16" class="svg octicon-person" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10.5 5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zm.061 3.073a4 4 0 1 0-5.123 0 6.004 6.004 0 0 0-3.431 5.142.75.75 0 0 0 1.498.07 4.5 4.5 0 0 1 8.99 0 .75.75 0 1 0 1.498-.07 6.005 6.005 0 0 0-3.432-5.142z"></path></svg>
+						Профиль
+					</a>
+					
+						<a class="item" href="http://git.scc/06ip193?tab=stars" id="_aria_auto_id_5" role="menuitem" tabindex="-1">
+							<svg viewBox="0 0 16 16" class="svg octicon-star" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694v.001z"></path></svg>
+							Избранные
+						</a>
+					
+					<a class=" item" href="http://git.scc/user/settings" id="_aria_auto_id_6" role="menuitem" tabindex="-1">
+						<svg viewBox="0 0 16 16" class="svg octicon-tools" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.433 2.304A4.494 4.494 0 0 0 3.5 6c0 1.598.832 3.002 2.09 3.802.518.328.929.923.902 1.64v.008l-.164 3.337a.75.75 0 1 1-1.498-.073l.163-3.33c.002-.085-.05-.216-.207-.316A5.996 5.996 0 0 1 2 6a5.994 5.994 0 0 1 2.567-4.92 1.482 1.482 0 0 1 1.673-.04c.462.296.76.827.76 1.423v2.82c0 .082.041.16.11.206l.75.51a.25.25 0 0 0 .28 0l.75-.51A.25.25 0 0 0 9 5.282V2.463c0-.596.298-1.127.76-1.423a1.482 1.482 0 0 1 1.673.04A5.994 5.994 0 0 1 14 6a5.996 5.996 0 0 1-2.786 5.068c-.157.1-.209.23-.207.315l.163 3.33a.75.75 0 1 1-1.498.074l-.164-3.345c-.027-.717.384-1.312.902-1.64A4.496 4.496 0 0 0 12.5 6a4.494 4.494 0 0 0-1.933-3.696c-.024.017-.067.067-.067.16v2.818a1.75 1.75 0 0 1-.767 1.448l-.75.51a1.75 1.75 0 0 1-1.966 0l-.75-.51A1.75 1.75 0 0 1 5.5 5.282V2.463c0-.092-.043-.142-.067-.159zm.01-.005z"></path></svg>
+						Настройки
+					</a>
+					<a class="item" target="_blank" rel="noopener noreferrer" href="https://docs.gitea.io/" id="_aria_auto_id_7" role="menuitem" tabindex="-1">
+						<svg viewBox="0 0 16 16" class="svg octicon-question" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm9 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.92 6.085c.081-.16.19-.299.34-.398.145-.097.371-.187.74-.187.28 0 .553.087.738.225A.613.613 0 0 1 9 6.25c0 .177-.04.264-.077.318a.956.956 0 0 1-.277.245c-.076.051-.158.1-.258.161l-.007.004a7.728 7.728 0 0 0-.313.195 2.416 2.416 0 0 0-.692.661.75.75 0 0 0 1.248.832.956.956 0 0 1 .276-.245 6.3 6.3 0 0 1 .26-.16l.006-.004c.093-.057.204-.123.313-.195.222-.149.487-.355.692-.662.214-.32.329-.702.329-1.15 0-.76-.36-1.348-.863-1.725A2.76 2.76 0 0 0 8 4c-.631 0-1.155.16-1.572.438-.413.276-.68.638-.849.977a.75.75 0 1 0 1.342.67z"></path></svg>
+						Помощь
+					</a>
+					
+
+					<div class="divider"></div>
+					<a class="item link-action" href="http://git.scc/asv/SportStorePractic/wiki/06-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-ERD-%D0%B4%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" data-url="/user/logout" data-redirect="/" id="_aria_auto_id_8" role="menuitem" tabindex="-1">
+						<svg viewBox="0 0 16 16" class="svg octicon-sign-out" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.75C2 1.784 2.784 1 3.75 1h2.5a.75.75 0 0 1 0 1.5h-2.5a.25.25 0 0 0-.25.25v10.5c0 .138.112.25.25.25h2.5a.75.75 0 0 1 0 1.5h-2.5A1.75 1.75 0 0 1 2 13.25V2.75zm10.44 4.5H6.75a.75.75 0 0 0 0 1.5h5.69l-1.97 1.97a.75.75 0 1 0 1.06 1.06l3.25-3.25a.75.75 0 0 0 0-1.06l-3.25-3.25a.75.75 0 1 0-1.06 1.06l1.97 1.97z"></path></svg>
+						Выход
+					</a>
+				</div>
+			</div>
+		</div>
+	
+</div>
+
+			</div>
+		
+
+
+
+<div class="page-content repository wiki view">
+	<div class="header-wrapper">
+
+	<div class="ui container">
+		<div class="repo-header">
+			<div class="repo-title-wrap df fc">
+				<div class="repo-title">
+					
+					
+						<div class="repo-icon mr-3">
+	
+		
+			<svg viewBox="0 0 16 16" class="svg octicon-repo" width="32" height="32" aria-hidden="true"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 1 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 0 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 0 1 1-1h8zM5 12.25v3.25a.25.25 0 0 0 .4.2l1.45-1.087a.25.25 0 0 1 .3 0L8.6 15.7a.25.25 0 0 0 .4-.2v-3.25a.25.25 0 0 0-.25-.25h-3.5a.25.25 0 0 0-.25.25z"></path></svg>
+		
+	
+</div>
+
+					
+					<a href="http://git.scc/asv">asv</a>
+					<div class="mx-2">/</div>
+					<a href="http://git.scc/asv/SportStorePractic">SportStorePractic</a>
+					<a href="http://git.scc/asv/SportStorePractic.rss"><i class="ui grey icon tooltip ml-3" data-content="RSS-лента" data-position="top center" data-variation="inverted tiny"><svg viewBox="0 0 16 16" class="svg octicon-rss" width="18" height="18" aria-hidden="true"><path fill-rule="evenodd" d="M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 1 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.75.75 0 0 1-.7-.798zM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm.84-5.95a.75.75 0 0 0-.179 1.489c2.509.3 4.5 2.291 4.8 4.8a.75.75 0 1 0 1.49-.178A7.003 7.003 0 0 0 2.838 7.05z"></path></svg></i></a>
+					<div class="labels df ac fw">
+						
+							
+								
+							
+						
+						
+					</div>
+				</div>
+				
+				
+				
+			</div>
+			
+				<div class="repo-buttons">
+					
+					<form method="post" action="http://git.scc/asv/SportStorePractic/action/watch?redirect_to=%2fasv%2fSportStorePractic%2fwiki%2f06-%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5-ERD-%25D0%25B4%25D0%25B8%25D0%25B0%25D0%25B3%25D1%2580%25D0%25B0%25D0%25BC%25D0%25BC%25D1%258B-%25D0%25B1%25D0%25B0%25D0%25B7%25D1%258B-%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25BD%25D1%258B%25D1%2585">
+						<input type="hidden" name="_csrf" value="p-08C_EEp7WMBPyFJcGEokMCAOg6MTY3NzU3NDU5OTA5MTA0NzY0NA">
+						<div class="ui labeled button" tabindex="0">
+							<button type="submit" class="ui compact small basic button">
+								<svg viewBox="0 0 16 16" class="svg octicon-eye" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.679 7.932c.412-.621 1.242-1.75 2.366-2.717C5.175 4.242 6.527 3.5 8 3.5c1.473 0 2.824.742 3.955 1.715 1.124.967 1.954 2.096 2.366 2.717a.119.119 0 0 1 0 .136c-.412.621-1.242 1.75-2.366 2.717C10.825 11.758 9.473 12.5 8 12.5c-1.473 0-2.824-.742-3.955-1.715C2.92 9.818 2.09 8.69 1.679 8.068a.119.119 0 0 1 0-.136zM8 2c-1.981 0-3.67.992-4.933 2.078C1.797 5.169.88 6.423.43 7.1a1.619 1.619 0 0 0 0 1.798c.45.678 1.367 1.932 2.637 3.024C4.329 13.008 6.019 14 8 14c1.981 0 3.67-.992 4.933-2.078 1.27-1.091 2.187-2.345 2.637-3.023a1.619 1.619 0 0 0 0-1.798c-.45-.678-1.367-1.932-2.637-3.023C11.671 2.992 9.981 2 8 2zm0 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"></path></svg>Следить
+							</button>
+							<a class="ui basic label" href="http://git.scc/asv/SportStorePractic/watchers">
+								1
+							</a>
+						</div>
+					</form>
+					
+						<form method="post" action="http://git.scc/asv/SportStorePractic/action/star?redirect_to=%2fasv%2fSportStorePractic%2fwiki%2f06-%25D0%25A1%25D0%25BE%25D0%25B7%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25B8%25D0%25B5-ERD-%25D0%25B4%25D0%25B8%25D0%25B0%25D0%25B3%25D1%2580%25D0%25B0%25D0%25BC%25D0%25BC%25D1%258B-%25D0%25B1%25D0%25B0%25D0%25B7%25D1%258B-%25D0%25B4%25D0%25B0%25D0%25BD%25D0%25BD%25D1%258B%25D1%2585">
+							<input type="hidden" name="_csrf" value="p-08C_EEp7WMBPyFJcGEokMCAOg6MTY3NzU3NDU5OTA5MTA0NzY0NA">
+							<div class="ui labeled button" tabindex="0">
+								<button type="submit" class="ui compact small basic button">
+									<svg viewBox="0 0 16 16" class="svg octicon-star" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694v.001z"></path></svg>В избранное
+								</button>
+								<a class="ui basic label" href="http://git.scc/asv/SportStorePractic/stars">
+									1
+								</a>
+							</div>
+						</form>
+					
+					
+				</div>
+			
+		</div>
+	</div>
+
+	<div class="ui tabs container">
+		
+			<div class="ui tabular stackable menu navbar">
+				
+				<a class=" item" href="http://git.scc/asv/SportStorePractic">
+					<svg viewBox="0 0 16 16" class="svg octicon-code" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4.72 3.22a.75.75 0 0 1 1.06 1.06L2.06 8l3.72 3.72a.75.75 0 1 1-1.06 1.06L.47 8.53a.75.75 0 0 1 0-1.06l4.25-4.25zm6.56 0a.75.75 0 1 0-1.06 1.06L13.94 8l-3.72 3.72a.75.75 0 1 0 1.06 1.06l4.25-4.25a.75.75 0 0 0 0-1.06l-4.25-4.25z"></path></svg> Код
+				</a>
+				
+
+				
+					<a class=" item" href="http://git.scc/asv/SportStorePractic/issues">
+						<svg viewBox="0 0 16 16" class="svg octicon-issue-opened" width="16" height="16" aria-hidden="true"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"></path><path fill-rule="evenodd" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM1.5 8a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0z"></path></svg> Задачи
+						
+					</a>
+				
+
+				
+
+				
+
+				
+					<a href="http://git.scc/asv/SportStorePractic/packages" class=" item">
+						<svg viewBox="0 0 16 16" class="svg octicon-package" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 0 0-1.756 0l-5.25 3.045A1.75 1.75 0 0 0 1 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 0 0 1.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 0 1 .25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432v5.516z"></path></svg> Пакеты
+					</a>
+				
+
+				
+					<a href="http://git.scc/asv/SportStorePractic/projects" class=" item">
+						<svg viewBox="0 0 16 16" class="svg octicon-project" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 0 0 0 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0 0 16 14.25V1.75A1.75 1.75 0 0 0 14.25 0H1.75zM1.5 1.75a.25.25 0 0 1 .25-.25h12.5a.25.25 0 0 1 .25.25v12.5a.25.25 0 0 1-.25.25H1.75a.25.25 0 0 1-.25-.25V1.75zM11.75 3a.75.75 0 0 0-.75.75v7.5a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75zm-8.25.75a.75.75 0 0 1 1.5 0v5.5a.75.75 0 0 1-1.5 0v-5.5zM8 3a.75.75 0 0 0-.75.75v3.5a.75.75 0 0 0 1.5 0v-3.5A.75.75 0 0 0 8 3z"></path></svg> Проекты
+						
+					</a>
+				
+
+				
+
+				
+					<a class="active item" href="http://git.scc/asv/SportStorePractic/wiki">
+						<svg viewBox="0 0 16 16" class="svg octicon-book" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75V1.75zm8.755 3a2.25 2.25 0 0 1 2.25-2.25H14.5v9h-3.757c-.71 0-1.4.201-1.992.572l.004-7.322zm-1.504 7.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574z"></path></svg> Вики
+					</a>
+				
+
+				
+
+				
+
+				
+			</div>
+		
+	</div>
+	<div class="ui tabs divider"></div>
+</div>
+
+	
+	<div class="ui container">
+		<div class="repo-button-row df ac sb fw">
+			<div class="df ac">
+				<div class="choose page">
+					<div class="ui floating filter dropdown" data-no-results="Результатов не найдено." data-aria-attached="1" role="menu" aria-haspopup="menu" aria-controls="_aria_auto_id_9" aria-expanded="false" tabindex="0">
+						<div class="ui basic small button">
+							<span class="text">
+								Страница:
+								<strong>06 Создание ERD диаграммы базы данных</strong>
+							</span>
+							<svg viewBox="0 0 16 16" class="dropdown icon svg octicon-triangle-down" width="14" height="14" aria-hidden="true" tabindex="0"><path d="m4.427 7.427 3.396 3.396a.25.25 0 0 0 .354 0l3.396-3.396A.25.25 0 0 0 11.396 7H4.604a.25.25 0 0 0-.177.427z"></path><div class="menu" tabindex="-1"></div></svg>
+						</div>
+						<div class="menu hidden transition" id="_aria_auto_id_9" tabindex="-1">
+							<div class="ui icon search input">
+								<i class="icon df ac jc m-0"><svg viewBox="0 0 16 16" class="svg octicon-filter" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M.75 3a.75.75 0 0 0 0 1.5h14.5a.75.75 0 0 0 0-1.5H.75zM3 7.75A.75.75 0 0 1 3.75 7h8.5a.75.75 0 0 1 0 1.5h-8.5A.75.75 0 0 1 3 7.75zm3 4a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75z"></path></svg></i>
+								<input name="search" placeholder="Фильтр страницы...">
+							</div>
+							<div class="scrolling menu">
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/01-%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D0%B8%D1%81%D1%85%D0%BE%D0%B4%D0%BD%D1%8B%D1%85-%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2-%D0%B8-%D0%BF%D0%B0%D0%BF%D0%BE%D0%BA-%D0%BA-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D1%8E">01 Анализ исходных файлов и папок к заданию</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/02-%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D1%83%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D1%81-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0%D0%BC%D0%B8-.gitignore-%D0%B8-readme.md-%D0%BD%D0%B0-git.scc%2C-%D0%BF%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F">02 Подготовка удаленного репозитория с файлами .gitignore и readme.md на git.scc, подготовка локального репозитория</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/03-%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0-%28mssql-server%29">03 Анализ структуры скрипта для выбраного сервера (mssql server)</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/04-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-WPF">04 Создание проекта приложения WPF</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/05-%D0%A0%D0%B0%D0%B7%D0%B2%D0%B5%D1%80%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B5-%D0%B1%D0%B0%D0%B7-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">05 Развертывания скрипта на сервере баз данных</div>
+								
+									<div class="item selected" data-url="/asv/SportStorePractic/wiki/06-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-ERD-%D0%B4%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">06 Создание ERD диаграммы базы данных</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/07-%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-xls">07 Анализ файлов данных xls</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/08-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BB%D0%BE%D0%BA%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B3%D0%BE-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F">08 Создание локального репозитория</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/09-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9-%D0%BA-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8E">09 Создание требований к приложению</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/10-%D0%9F%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B.-UML---%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">10 Проектирование информационной системы. UML   моделирование</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/11-%D0%9F%D0%BE%D0%B4%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D0%BA%D0%B0-%D0%B8%D0%BD%D1%84%D1%80%D0%B0%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D1%8B-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0-%D0%B2-Visual-Studio-2022">11 Подготовка инфраструктуры проекта в Visual Studio 2022</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/12-%D0%90%D0%B2%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F">12 Авторизация</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/13-%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%BE%D0%B5-%D0%BC%D0%B5%D0%BD%D1%8E">13 Главное меню</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/14-%D0%94%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0">14 Добавление товара</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/15-%D0%A0%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0">15 Редактирование товара</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/16-%D0%A3%D0%B4%D0%B0%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0">16 Удаление товара</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/17-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B8-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BE%D0%B2">17 Создание библиотеки классов</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/18-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B5%D1%81%D1%82%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D1%83-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BE%D0%B2">18 Создание тестов на библиотеку классов</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/19-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%B5%D1%81%D1%82-%D0%BA%D0%B5%D0%B9%D1%81%D0%BE%D0%B2-%D0%BD%D0%B0-%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D0%B4%D1%83%D1%80%D1%83-%D0%B4%D0%BE%D0%B1%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0">19 Создание тест кейсов на процедуру добавления товара</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/20-%D0%9F%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-%D1%82%D1%80%D0%B5%D0%B1%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B9">20 Проверка требований</div>
+								
+									<div class="item " data-url="/asv/SportStorePractic/wiki/Home">Home</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="df ac">
+				<div class="ui action small input" id="clone-panel">
+					
+
+	<button class="ui basic small compact clone button primary" id="repo-clone-https" data-link="http://git.scc/asv/SportStorePractic.wiki.git">
+		HTTP
+	</button>
+
+
+	<button class="ui basic small compact clone button" id="repo-clone-ssh" data-link="git@git.scc:asv/SportStorePractic.wiki.git">
+		SSH
+	</button>
+
+<input id="repo-clone-url" size="20" class="js-clone-url br-0" value="http://git.scc/asv/SportStorePractic.wiki.git" readonly="">
+<button class="ui basic small compact icon button tooltip" id="clipboard-btn" data-content="Копировать URL" data-clipboard-target="#repo-clone-url" aria-label="Копировать URL" data-variation="inverted tiny">
+	<svg viewBox="0 0 16 16" class="svg octicon-copy" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25v-7.5zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25h-7.5z"></path></svg>
+</button>
+
+					<script>
+	
+	
+	
+	
+	(window.updateCloneStates = function() {
+		const httpsBtn = document.getElementById('repo-clone-https');
+		const sshBtn = document.getElementById('repo-clone-ssh');
+		const value = localStorage.getItem('repo-clone-protocol') || 'https';
+		const isSSH = value === 'ssh' && sshBtn || value !== 'ssh' && !httpsBtn;
+
+		if (httpsBtn) httpsBtn.classList[!isSSH ? 'add' : 'remove']('primary');
+		if (sshBtn) sshBtn.classList[isSSH ? 'add' : 'remove']('primary');
+
+		const btn = isSSH ? sshBtn : httpsBtn;
+		if (!btn) return;
+
+		const link = btn.getAttribute('data-link');
+		for (const el of document.getElementsByClassName('js-clone-url')) {
+			el[el.nodeName === 'INPUT' ? 'value' : 'textContent'] = link;
+		}
+	})();
+</script>
+
+				</div>
+			</div>
+		</div>
+		<div class="ui dividing header">
+			<div class="ui stackable grid">
+				<div class="eight wide column">
+					<a class="file-revisions-btn ui basic button" title="Версия страницы" href="http://git.scc/asv/SportStorePractic/wiki/06-%D0%A1%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-ERD-%D0%B4%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%8B-%D0%B1%D0%B0%D0%B7%D1%8B-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85?action=_revision"><span>2</span> <svg viewBox="0 0 16 16" class="svg octicon-history" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.643 3.143.427 1.927A.25.25 0 0 0 0 2.104V5.75c0 .138.112.25.25.25h3.646a.25.25 0 0 0 .177-.427L2.715 4.215a6.5 6.5 0 1 1-1.18 4.458.75.75 0 1 0-1.493.154 8.001 8.001 0 1 0 1.6-5.684zM7.75 4a.75.75 0 0 1 .75.75v2.992l2.028.812a.75.75 0 0 1-.557 1.392l-2.5-1A.75.75 0 0 1 7 8.25v-3.5A.75.75 0 0 1 7.75 4z"></path></svg></a>
+					06 Создание ERD диаграммы базы данных
+					<div class="ui sub header">
+						
+						Артемов Сергей Владимирович редактировал(а) эту страницу <span class="time-since tooltip" title="" data-content="Mon, 28 Nov 2022 15:07:25 MSK" data-variation="inverted tiny">3 месяцев назад</span>
+					</div>
+				</div>
+				<div class="eight wide right aligned column">
+					
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="ui " style="margin-top: 1rem;">
+			<div class="ui  segment markup wiki-content-main">
+				
+	
+
+
+				<p>В <code>MSSQL Management Studio</code> или <code>Dbeaver</code> создайте ERD - диаграмму базы данных и сохраните в формате <code>png</code>.</p>
+<ol>
+<li>Подключение</li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image13.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image13.png" title="image13.png" alt="http://prep.scc/~asv/images/image13.png"></a></p>
+<ol start="2">
+<li>Список объектов баз данных</li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image14.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image14.png" title="image14.png" alt="http://prep.scc/~asv/images/image14.png"></a></p>
+<ol start="3">
+<li>Создание диаграммы баз данных <code>SportStore</code></li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image15.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image15.png" title="image15.png" alt="http://prep.scc/~asv/images/image15.png"></a></p>
+<p>Возможная ошибка при создании диаграммы</p>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image16.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image16.png" title="image16.png" alt="http://prep.scc/~asv/images/image16.png"></a></p>
+<p>Cвойства базы данных =&gt; Файлы =&gt; Владелец: sa</p>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image17.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image17.png" title="image17.png" alt="http://prep.scc/~asv/images/image17.png"></a></p>
+<ol start="4">
+<li>Создание диаграммы баз данных</li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image18.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image18.png" title="image18.png" alt="http://prep.scc/~asv/images/image18.png"></a></p>
+<ol start="5">
+<li>Выбор таблиц</li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image19.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image19.png" title="image19.png" alt="http://prep.scc/~asv/images/image19.png"></a></p>
+<ol start="6">
+<li>Создание диаграммы ERD (для сохранения нажмите ПКM =&gt; Копировать в буфер)</li>
+</ol>
+<p><a href="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image20.png" rel="nofollow"><img src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/image20.png" title="image20.png" alt="http://prep.scc/~asv/images/image20.png"></a></p>
+
+			</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+<div class="ui small basic delete modal">
+	<div class="ui icon header">
+		<svg viewBox="0 0 16 16" class="svg octicon-trash" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6.5 1.75a.25.25 0 0 1 .25-.25h2.5a.25.25 0 0 1 .25.25V3h-3V1.75zm4.5 0V3h2.25a.75.75 0 0 1 0 1.5H2.75a.75.75 0 0 1 0-1.5H5V1.75C5 .784 5.784 0 6.75 0h2.5C10.216 0 11 .784 11 1.75zM4.496 6.675a.75.75 0 1 0-1.492.15l.66 6.6A1.75 1.75 0 0 0 5.405 15h5.19c.9 0 1.652-.681 1.741-1.576l.66-6.6a.75.75 0 0 0-1.492-.149l-.66 6.6a.25.25 0 0 1-.249.225h-5.19a.25.25 0 0 1-.249-.225l-.66-6.6z"></path></svg>
+		Удалить страницу
+	</div>
+	<div class="content">
+		<p>Удаление вики-страницы '06 Создание ERD диаграммы базы данных' не может быть отменено. Продолжить?</p>
+	</div>
+	<div class="actions">
+	<div class="ui red basic inverted cancel button">
+		<svg viewBox="0 0 16 16" class="svg octicon-x" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06z"></path></svg>
+		Нет
+	</div>
+	<div class="ui green basic inverted ok button">
+		<svg viewBox="0 0 16 16" class="svg octicon-check" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.75.75 0 0 1 1.06-1.06L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0z"></path></svg>
+		Да
+	</div>
+</div>
+
+</div>
+
+
+
+	
+
+	</div>
+
+	
+
+	<footer>
+	<div class="ui container">
+		<div class="ui left">
+			Работает на Gitea
+			
+				Версия:
+				
+					1.17.2
+				
+			
+			
+				Страница: <strong>40ms</strong>
+				Шаблон
+				: <strong>5ms</strong>
+			
+		</div>
+		<div class="ui right links">
+			
+			<div class="ui language bottom floating slide up dropdown link item" tabindex="0" data-aria-attached="1" role="menu" aria-haspopup="menu" aria-controls="_aria_auto_id_10" aria-expanded="false">
+				<svg viewBox="0 0 16 16" class="svg octicon-globe" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.543 7.25h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.506 6.506 0 0 0-4.666 5.5zm2.733 1.5H1.543a6.506 6.506 0 0 0 4.666 5.5 11.13 11.13 0 0 1-.352-.552c-.715-1.192-1.437-2.874-1.581-4.948zm1.504 0h4.44a9.637 9.637 0 0 1-1.363 4.177c-.306.51-.612.919-.857 1.215a9.978 9.978 0 0 1-.857-1.215A9.637 9.637 0 0 1 5.78 8.75zm4.44-1.5H5.78a9.637 9.637 0 0 1 1.363-4.177c.306-.51.612-.919.857-1.215.245.296.55.705.857 1.215A9.638 9.638 0 0 1 10.22 7.25zm1.504 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.506 6.506 0 0 0 4.666-5.5h-2.733zm2.733-1.5h-2.733c-.144-2.074-.866-3.756-1.58-4.948a11.738 11.738 0 0 0-.353-.552 6.506 6.506 0 0 1 4.666 5.5zM8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0z"></path></svg>
+				<div class="text">Русский</div>
+				<div class="menu language-menu hidden transition" tabindex="-1" id="_aria_auto_id_10">
+					
+						<a lang="id-ID" data-url="/?lang=id-ID" class="item " id="_aria_auto_id_11" role="menuitem" tabindex="-1">Bahasa Indonesia</a>
+					
+						<a lang="de-DE" data-url="/?lang=de-DE" class="item " id="_aria_auto_id_12" role="menuitem" tabindex="-1">Deutsch</a>
+					
+						<a lang="en-US" data-url="/?lang=en-US" class="item " id="_aria_auto_id_13" role="menuitem" tabindex="-1">English</a>
+					
+						<a lang="es-ES" data-url="/?lang=es-ES" class="item " id="_aria_auto_id_14" role="menuitem" tabindex="-1">Español</a>
+					
+						<a lang="fr-FR" data-url="/?lang=fr-FR" class="item " id="_aria_auto_id_15" role="menuitem" tabindex="-1">Français</a>
+					
+						<a lang="it-IT" data-url="/?lang=it-IT" class="item " id="_aria_auto_id_16" role="menuitem" tabindex="-1">Italiano</a>
+					
+						<a lang="lv-LV" data-url="/?lang=lv-LV" class="item " id="_aria_auto_id_17" role="menuitem" tabindex="-1">Latviešu</a>
+					
+						<a lang="hu-HU" data-url="/?lang=hu-HU" class="item " id="_aria_auto_id_18" role="menuitem" tabindex="-1">Magyar nyelv</a>
+					
+						<a lang="nl-NL" data-url="/?lang=nl-NL" class="item " id="_aria_auto_id_19" role="menuitem" tabindex="-1">Nederlands</a>
+					
+						<a lang="pl-PL" data-url="/?lang=pl-PL" class="item " id="_aria_auto_id_20" role="menuitem" tabindex="-1">Polski</a>
+					
+						<a lang="pt-PT" data-url="/?lang=pt-PT" class="item " id="_aria_auto_id_21" role="menuitem" tabindex="-1">Português de Portugal</a>
+					
+						<a lang="pt-BR" data-url="/?lang=pt-BR" class="item " id="_aria_auto_id_22" role="menuitem" tabindex="-1">Português do Brasil</a>
+					
+						<a lang="fi-FI" data-url="/?lang=fi-FI" class="item " id="_aria_auto_id_23" role="menuitem" tabindex="-1">Suomi</a>
+					
+						<a lang="sv-SE" data-url="/?lang=sv-SE" class="item " id="_aria_auto_id_24" role="menuitem" tabindex="-1">Svenska</a>
+					
+						<a lang="tr-TR" data-url="/?lang=tr-TR" class="item " id="_aria_auto_id_25" role="menuitem" tabindex="-1">Türkçe</a>
+					
+						<a lang="cs-CZ" data-url="/?lang=cs-CZ" class="item " id="_aria_auto_id_26" role="menuitem" tabindex="-1">Čeština</a>
+					
+						<a lang="el-GR" data-url="/?lang=el-GR" class="item " id="_aria_auto_id_27" role="menuitem" tabindex="-1">Ελληνικά</a>
+					
+						<a lang="bg-BG" data-url="/?lang=bg-BG" class="item " id="_aria_auto_id_28" role="menuitem" tabindex="-1">Български</a>
+					
+						<a lang="ru-RU" data-url="/?lang=ru-RU" class="item active selected" id="_aria_auto_id_29" role="menuitem" tabindex="-1">Русский</a>
+					
+						<a lang="sr-SP" data-url="/?lang=sr-SP" class="item " id="_aria_auto_id_30" role="menuitem" tabindex="-1">Српски</a>
+					
+						<a lang="uk-UA" data-url="/?lang=uk-UA" class="item " id="_aria_auto_id_31" role="menuitem" tabindex="-1">Українська</a>
+					
+						<a lang="fa-IR" data-url="/?lang=fa-IR" class="item " id="_aria_auto_id_32" role="menuitem" tabindex="-1">فارسی</a>
+					
+						<a lang="ml-IN" data-url="/?lang=ml-IN" class="item " id="_aria_auto_id_33" role="menuitem" tabindex="-1">മലയാളം</a>
+					
+						<a lang="ja-JP" data-url="/?lang=ja-JP" class="item " id="_aria_auto_id_34" role="menuitem" tabindex="-1">日本語</a>
+					
+						<a lang="zh-CN" data-url="/?lang=zh-CN" class="item " id="_aria_auto_id_35" role="menuitem" tabindex="-1">简体中文</a>
+					
+						<a lang="zh-TW" data-url="/?lang=zh-TW" class="item " id="_aria_auto_id_36" role="menuitem" tabindex="-1">繁體中文（台灣）</a>
+					
+						<a lang="zh-HK" data-url="/?lang=zh-HK" class="item " id="_aria_auto_id_37" role="menuitem" tabindex="-1">繁體中文（香港）</a>
+					
+						<a lang="ko-KR" data-url="/?lang=ko-KR" class="item " id="_aria_auto_id_38" role="menuitem" tabindex="-1">한국어</a>
+					
+				</div>
+			</div>
+			<a href="http://git.scc/assets/js/licenses.txt">Лицензии</a>
+			<a href="http://git.scc/api/swagger">API</a>
+			<a target="_blank" rel="noopener noreferrer" href="https://gitea.io/">Веб-сайт</a>
+			
+		</div>
+	</div>
+</footer>
+
+
+
+
+	<script src="./06 Создание ERD диаграммы базы данных - SportStorePractic - Gitea_ Git with a cup of tea_files/index.js.Без названия" onerror="alert(&#39;Failed to load asset files from &#39; + this.src + &#39;, please make sure the asset files can be accessed and the ROOT_URL setting in app.ini is correct.&#39;)"></script>
+
+
+
+
+</body></html>
